@@ -5,6 +5,61 @@ library(tidyverse)
 dc_birds <- 
   read_rds('data/raw/district_birds.rds')
 
+
+# plot theme --------------------------------------------------------------
+
+my_theme <- 
+  function() {
+    theme(
+      
+      # Panel elements:
+      
+      panel.border = element_blank(),
+      panel.grid = element_blank(),
+      panel.background = element_blank(),
+      
+      # Axis elements:
+      
+      axis.line = 
+        element_line(
+          color = "black",
+          lineend = "round"),
+      axis.line.x = element_line(linewidth = 0.5),
+      axis.line.y = element_line(linewidth = 0.3),
+      
+      # Text elements:
+      
+      axis.text = 
+        element_text(
+          size = 10,
+          family = "serif"),
+      axis.title = 
+        element_text(
+          size = 12,
+          family = "serif"),
+      axis.title.x = 
+        element_text(
+          margin = 
+            margin(
+              t = 10,
+              r = 0,
+              b = 0,
+              l = 0)),
+      axis.title.y = 
+        element_text(
+          margin = 
+            margin(
+              t = 0,
+              r = 5,
+              b = 0,
+              l = 0)),
+      plot.title = 
+        element_text(
+          size = 14,
+          family = "serif",
+          hjust = 0.5))
+  }
+
 # plot bird counts by diet guild ------------------------------------------
 
 dc_birds %>% 
@@ -50,57 +105,7 @@ dc_birds %>%
     title = "Bird counts by diet guild",
     x = "Diet guild",
     y = "Birds observed") +
-  
-  # Thematic elements:
-  
-  theme(
-    
-    # Panel elements:
-    
-    panel.border = element_blank(),
-    panel.grid = element_blank(),
-    panel.background = element_blank(),
-    
-    # Axis elements:
-    
-    axis.line = 
-      element_line(
-        color = "black",
-        lineend = "round"),
-    axis.line.x = element_line(linewidth = 0.5),
-    axis.line.y = element_line(linewidth = 0.3),
-    
-    # Text elements:
-    
-    axis.text = 
-      element_text(
-      size = 10,
-      family = "serif"),
-    axis.title = 
-      element_text(
-        size = 12,
-        family = "serif"),
-    axis.title.x = 
-      element_text(
-        margin = 
-          margin(
-            t = 10,
-            r = 0,
-            b = 0,
-            l = 0)),
-    axis.title.y = 
-      element_text(
-        margin = 
-          margin(
-            t = 0,
-            r = 5,
-            b = 0,
-            l = 0)),
-    plot.title = 
-      element_text(
-        size = 14,
-        family = "serif",
-        hjust = 0.5))
+  my_theme()
 
 # plot bird counts by foraging guild --------------------------------------
 
@@ -147,57 +152,7 @@ dc_birds %>%
     title = "Bird counts by foraging guild",
     x = "Foraging guild",
     y = "Birds observed") +
-  
-  # Thematic elements:
-  
-  theme(
-    
-    # Panel elements:
-    
-    panel.border = element_blank(),
-    panel.grid = element_blank(),
-    panel.background = element_blank(),
-    
-    # Axis elements:
-    
-    axis.line = 
-      element_line(
-        color = "black",
-        lineend = "round"),
-    axis.line.x = element_line(linewidth = 0.5),
-    axis.line.y = element_line(linewidth = 0.3),
-    
-    # Text elements:
-    
-    axis.text = 
-      element_text(
-        size = 10,
-        family = "serif"),
-    axis.title = 
-      element_text(
-        size = 12,
-        family = "serif"),
-    axis.title.x = 
-      element_text(
-        margin = 
-          margin(
-            t = 10,
-            r = 0,
-            b = 0,
-            l = 0)),
-    axis.title.y = 
-      element_text(
-        margin = 
-          margin(
-            t = 0,
-            r = 5,
-            b = 0,
-            l = 0)),
-    plot.title = 
-      element_text(
-        size = 14,
-        family = "serif",
-        hjust = 0.5))
+ my_theme()
 
 # plot bird mass by diet guild --------------------------------------------
 
@@ -237,57 +192,7 @@ dc_birds %>%
     title = "Bird mass by diet guild",
     x = "Diet guild",
     y = "Mass") +
-
-  # Thematic elements:
-  
-  theme(
-    
-    # Panel elements:
-    
-    panel.border = element_blank(),
-    panel.grid = element_blank(),
-    panel.background = element_blank(),
-    
-    # Axis elements:
-    
-    axis.line = 
-      element_line(
-        color = "black",
-        lineend = "round"),
-    axis.line.x = element_line(linewidth = 0.5),
-    axis.line.y = element_line(linewidth = 0.3),
-    
-    # Text elements:
-    
-    axis.text = 
-      element_text(
-        size = 10,
-        family = "serif"),
-    axis.title = 
-      element_text(
-        size = 12,
-        family = "serif"),
-    axis.title.x = 
-      element_text(
-        margin = 
-          margin(
-            t = 10,
-            r = 0,
-            b = 0,
-            l = 0)),
-    axis.title.y = 
-      element_text(
-        margin = 
-          margin(
-            t = 0,
-            r = 5,
-            b = 0,
-            l = 0)),
-    plot.title = 
-      element_text(
-        size = 14,
-        family = "serif",
-        hjust = 0.5))
+  my_theme()
 
 # plot bird mass by foraging guild ----------------------------------------
 
@@ -327,54 +232,5 @@ dc_birds %>%
     title = "Bird mass by foraging guild",
     x = "Foraging guild",
     y = "Mass") +
-
-  # Thematic elements:
+  my_theme()  
   
-  theme(
-    
-    # Panel elements:
-    
-    panel.border = element_blank(),
-    panel.grid = element_blank(),
-    panel.background = element_blank(),
-    
-    # Axis elements:
-    
-    axis.line = 
-      element_line(
-        color = "black",
-        lineend = "round"),
-    axis.line.x = element_line(linewidth = 0.5),
-    axis.line.y = element_line(linewidth = 0.3),
-    
-    # Text elements:
-    
-    axis.text = 
-      element_text(
-        size = 10,
-        family = "serif"),
-    axis.title = 
-      element_text(
-        size = 12,
-        family = "serif"),
-    axis.title.x = 
-      element_text(
-        margin = 
-          margin(
-            t = 10,
-            r = 0,
-            b = 0,
-            l = 0)),
-    axis.title.y = 
-      element_text(
-        margin = 
-          margin(
-            t = 0,
-            r = 5,
-            b = 0,
-            l = 0)),
-    plot.title = 
-      element_text(
-        size = 14,
-        family = "serif",
-        hjust = 0.5))
